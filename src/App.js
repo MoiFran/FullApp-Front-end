@@ -14,7 +14,6 @@ import Curso from "./components/AreaDeTrabajo";
 import Docentes from "./components/Docentes";
 import Logout from "./components/Logout";
 import ModificarCursos from "./components/ModificarCursos";
-
 function App() {
   const datosUsuario = localStorage.getItem("DatosUsuario");
   const datosRecuperar = datosUsuario ? JSON.parse(datosUsuario) : null;

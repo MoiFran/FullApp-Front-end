@@ -24,9 +24,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="">
       <Router>
-        <div className="navbar">
+        <div
+          className="navbar "
+          style={{ justifyContent: "center", position: "fixed", zIndex: "1" }}
+        >
           {!tieneAcceso ? (
             <div>
               <NavLink className={"navlink"} to="/">

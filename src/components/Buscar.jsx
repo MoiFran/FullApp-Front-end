@@ -45,8 +45,9 @@ const Buscar = () => {
           height: "50px",
           width: "320px",
           fontSize: "50px",
-          padding: 10,
+          padding: "15px",
           borderRadius: "5px",
+          marginTop: "30px",
         }}
       />
       {/* {datos.map((dato) => {

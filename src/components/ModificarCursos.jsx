@@ -60,7 +60,7 @@ const ModificarCursos = ({ curso }) => {
   return (
     <div
       className="Card-docente"
-      style={{ width: "300px", padding: 20, marginRight: "20px" }}
+      style={{ width: "350px", padding: 20, marginRight: "20px" }}
     >
       <h2>{curso.nombre}</h2>
       <div style={{ display: "flex" }}>

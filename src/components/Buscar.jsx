@@ -25,7 +25,7 @@ const Buscar = () => {
         setDatos(res.data.cursos);
       } else {
         const res = await axios.get(
-          `https://fast-envoy-361708.wl.r.appspot.com/api/cursos${query}`
+          `https://fast-envoy-361708.wl.r.appspot.com/api/cursos/burcar/${query}`
         );
         setDatos(res.data.cursos);
       }

@@ -4,7 +4,7 @@ import axios from "axios";
 import Img4 from "../imgs/6-thumb.jpg";
 
 const ModificarCursos = ({ curso }) => {
-  let URL = "http://localhost:5000/api/cursos";
+  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/cursos";
 
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));

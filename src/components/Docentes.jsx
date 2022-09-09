@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const Docentes = () => {
-  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/docente";
+  let URL = "http://localhost:5000/api/docente";
   const [docentes, setDocentes] = useState([]);
 
   const getDocente = async () => {

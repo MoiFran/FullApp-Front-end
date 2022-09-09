@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
 import axios from "axios";
+import Img4 from "../imgs/6-thumb.jpg";
 
 const ModificarCursos = ({ curso }) => {
   let URL = "http://localhost:5000/api/cursos";
@@ -62,6 +63,17 @@ const ModificarCursos = ({ curso }) => {
       className="Card-docente"
       style={{ width: "350px", padding: 20, marginRight: "20px" }}
     >
+      <img
+        src={Img4}
+        alt=""
+        style={{
+          border: "none",
+          borderRadius: 10,
+          boxShadow: " 3px 3px 10px",
+          marginBottom: 10,
+        }}
+      />
+
       <h2>{curso.nombre}</h2>
       <div style={{ display: "flex" }}>
         <label>

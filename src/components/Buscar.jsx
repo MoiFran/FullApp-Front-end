@@ -20,12 +20,12 @@ const Buscar = () => {
     const recupera = async () => {
       if (query.length === 0) {
         const res = await axios.get(
-          process.env.REACT_APP_BACKEND_URL + "/cursos"
+          "https://fast-envoy-361708.wl.r.appspot.com/api/cursos"
         );
         setDatos(res.data.cursos);
       } else {
         const res = await axios.get(
-          process.env.REACT_APP_BACKEND_URL + `/cursos/buscar/${query}`
+          `https://fast-envoy-361708.wl.r.appspot.com/api/cursos/buscar/${query}`
         );
         setDatos(res.data.cursos);
       }

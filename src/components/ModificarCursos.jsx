@@ -4,7 +4,7 @@ import axios from "axios";
 import Img4 from "../imgs/6-thumb.jpg";
 
 const ModificarCursos = ({ curso }) => {
-  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
+  //let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
 
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));
@@ -23,7 +23,7 @@ const ModificarCursos = ({ curso }) => {
   const modificar = async () => {
     await axios
       .patch(
-        URL + "/" + curso._id,
+        "https://fast-envoy-361708.wl.r.appspot.com/api/cursos/" + curso._id,
         {
           nombre: nombre,
           horas: horas,
@@ -122,7 +122,8 @@ const ModificarCursos = ({ curso }) => {
         onClick={async () => {
           await axios
             .delete(
-              process.env.REACT_APP_BACKEND_URL + "/cursos/" + curso._id,
+              "https://fast-envoy-361708.wl.r.appspot.com/api/cursos/" +
+                curso._id,
               {
                 headers: {
                   Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido

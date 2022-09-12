@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/App.css";
 
 const LoginForm = ({ darAcceso }) => {
-  // let URL = process.env.REACT_APP_BACKEND_URL + "/docente/login";
+  let URL = process.env.REACT_APP_BACKEND_URL;
   const navegar = useNavigate();
 
   const [Email, setEmail] = useState("");
@@ -15,7 +15,7 @@ const LoginForm = ({ darAcceso }) => {
 
   const enterUser = async () => {
     await axios
-      .post("https://fast-envoy-361708.wl.r.appspot.com/api/docente/login", {
+      .post(URL + "/docente/login", {
         email: Email,
         password: Password,
       })

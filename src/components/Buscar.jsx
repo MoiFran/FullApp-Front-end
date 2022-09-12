@@ -4,6 +4,7 @@ import Tabla from "./Tabla";
 //import './Buscar.css';
 
 const Buscar = () => {
+  let URL = process.env.REACT_APP_BACKEND_URL;
   const [query, setQuery] = useState("");
   const [datos, setDatos] = useState([]);
 
@@ -19,14 +20,10 @@ const Buscar = () => {
   useEffect(() => {
     const recupera = async () => {
       if (query.length === 0) {
-        const res = await axios.get(
-          "https://fast-envoy-361708.wl.r.appspot.com/api/cursos"
-        );
+        const res = await axios.get(URL + "/cursos");
         setDatos(res.data.cursos);
       } else {
-        const res = await axios.get(
-          `https://fast-envoy-361708.wl.r.appspot.com/api/cursos/buscar/${query}`
-        );
+        const res = await axios.get(URL + `/cursos/buscar/${query}`);
         setDatos(res.data.cursos);
       }
     };

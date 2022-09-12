@@ -5,7 +5,7 @@ import Img4 from "../imgs/6-thumb.jpg";
 import { useNavigate } from "react-router-dom";
 
 const ModificarCursos = ({ curso }) => {
-  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos/";
+  let URL = process.env.REACT_APP_BACKEND_URL;
   const navegar = useNavigate();
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));
@@ -24,7 +24,7 @@ const ModificarCursos = ({ curso }) => {
   const modificar = async () => {
     await axios
       .patch(
-        URL + curso._id,
+        URL + `/cursos/${curso._id}`,
         {
           nombre: nombre,
           horas: horas,
@@ -123,15 +123,11 @@ const ModificarCursos = ({ curso }) => {
         className="btn-delete"
         onClick={async () => {
           await axios
-            .delete(
-              "https://fast-envoy-361708.wl.r.appspot.com/api/cursos/" +
-                curso._id,
-              {
-                headers: {
-                  Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
-                },
-              }
-            )
+            .delete(URL + `/cursos/${curso._id}`, {
+              headers: {
+                Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
+              },
+            })
             .then((response) => {
               window.location.reload(true);
               navegar("/curso");

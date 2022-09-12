@@ -3,12 +3,12 @@ import axios from "axios";
 import { useState } from "react";
 
 const Docentes = () => {
-  //let URL = process.env.REACT_APP_BACKEND_URL + "/docente";
+  let URL = process.env.REACT_APP_BACKEND_URL;
   const [docentes, setDocentes] = useState([]);
 
   const getDocente = async () => {
     await axios
-      .get("https://fast-envoy-361708.wl.r.appspot.com/api/docente")
+      .get(URL + "/docente")
       .then((response) => {
         setDocentes(response.data.docentes);
       })

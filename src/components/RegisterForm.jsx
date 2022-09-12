@@ -7,7 +7,7 @@ import axios from "axios";
 
 const RegisterForm = ({ darAcceso }) => {
   let navegar = useNavigate();
-  // let URL = process.env.REACT_APP_BACKEND_URL + "/docente";
+  let URL = process.env.REACT_APP_BACKEND_URL;
   const {
     register,
     handleSubmit,
@@ -18,7 +18,7 @@ const RegisterForm = ({ darAcceso }) => {
   const gestorFormulario = async (data) => {
     try {
       const response = await axios
-        .post("https://fast-envoy-361708.wl.r.appspot.com/api/docente", data)
+        .post(URL + "/docente", data)
         .then((resp) => {
           console.log("registro  correcto");
 

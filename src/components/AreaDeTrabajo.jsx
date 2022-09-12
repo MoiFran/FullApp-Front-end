@@ -5,7 +5,7 @@ import axios from "axios";
 import ModificarCursos from "./ModificarCursos";
 
 const AreaDeTrabajo = () => {
-  //let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
+  let URL = process.env.REACT_APP_BACKEND_URL;
 
   const {
     register,
@@ -27,8 +27,7 @@ const AreaDeTrabajo = () => {
   const [docente, setDocente] = useState([]);
   const getDocente = async () => {
     const data = await axios.get(
-      "https://fast-envoy-361708.wl.r.appspot.com/api/docente/" +
-        extraerDatosDeUsuario()[1]
+      URL + "/docente/" + extraerDatosDeUsuario()[1]
     );
     setDocente(data.data);
   };
@@ -36,7 +35,7 @@ const AreaDeTrabajo = () => {
   const crearCurso = async (data) => {
     await axios
       .post(
-        "https://fast-envoy-361708.wl.r.appspot.com/api/cursos",
+        URL + "/cursos",
         {
           nombre: data.nombre,
           horas: data.horas,
@@ -68,14 +67,11 @@ const AreaDeTrabajo = () => {
 
   const getAllCursos = async () => {
     try {
-      const response = await axios.get(
-        "https://fast-envoy-361708.wl.r.appspot.com/api/cursos",
-        {
-          headers: {
-            Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
-          },
-        }
-      );
+      const response = await axios.get(URL + "/cursos", {
+        headers: {
+          Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
+        },
+      });
 
       setCursos(response.data.cursos);
     } catch (e) {

@@ -38,7 +38,7 @@ const ModificarCursos = ({ curso }) => {
         }
       )
       .then((response) => {
-        //window.location.reload(true);
+        window.location.reload(true);
         console.log("im working");
         console.log("Todo correcto", response.data);
         navegar("/curso");

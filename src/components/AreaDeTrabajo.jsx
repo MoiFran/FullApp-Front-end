@@ -69,7 +69,7 @@ const AreaDeTrabajo = () => {
 
   const getAllCursos = async () => {
     try {
-      const response = await axios.get(URL, {
+      const response = await axios.get(URL + "/cursos", {
         headers: {
           Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
         },
@@ -143,7 +143,7 @@ const AreaDeTrabajo = () => {
 
           <input
             type="submit"
-            value="Crear Cuenta"
+            value="Add curso"
             id="submit"
             className="btn-all"
           />

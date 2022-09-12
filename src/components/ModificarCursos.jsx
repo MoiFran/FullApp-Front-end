@@ -5,7 +5,7 @@ import Img4 from "../imgs/6-thumb.jpg";
 import { useNavigate } from "react-router-dom";
 
 const ModificarCursos = ({ curso }) => {
-  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
+  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos/";
   const navegar = useNavigate();
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));

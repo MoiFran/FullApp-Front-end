@@ -134,6 +134,7 @@ const ModificarCursos = ({ curso }) => {
             )
             .then((response) => {
               window.location.reload(true);
+              navegar("/curso");
             })
             .catch((error) => {
               console.log(error.response.data);

@@ -5,7 +5,7 @@ import axios from "axios";
 import ModificarCursos from "./ModificarCursos";
 
 const AreaDeTrabajo = () => {
-  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/cursos";
+  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
 
   const {
     register,
@@ -22,6 +22,16 @@ const AreaDeTrabajo = () => {
 
       return [datosRecuperar.token, datosRecuperar.userId];
     }
+  };
+
+  const [docente, setDocente] = useState([]);
+  const getDocente = async () => {
+    const data = await axios.get(
+      process.env.REACT_APP_BACKEND_URL +
+        "/docente/" +
+        extraerDatosDeUsuario()[1]
+    );
+    setDocente(data.data);
   };
 
   const crearCurso = async (data) => {
@@ -53,6 +63,7 @@ const AreaDeTrabajo = () => {
         console.log(error.response.data);
       });
   };
+  console.log(docente);
 
   const [cursos, setCursos] = useState([]);
 
@@ -63,6 +74,7 @@ const AreaDeTrabajo = () => {
           Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
         },
       });
+
       setCursos(response.data.cursos);
     } catch (e) {
       console.log(e.message);
@@ -71,6 +83,7 @@ const AreaDeTrabajo = () => {
 
   useEffect(() => {
     getAllCursos();
+    getDocente();
   }, []);
   return (
     <div>

@@ -20,12 +20,12 @@ const Buscar = () => {
     const recupera = async () => {
       if (query.length === 0) {
         const res = await axios.get(
-          "https://fast-envoy-361708.wl.r.appspot.com/api/cursos"
+          process.env.REACT_APP_BACKEND_URL + "/cursos"
         );
         setDatos(res.data.cursos);
       } else {
         const res = await axios.get(
-          `https://fast-envoy-361708.wl.r.appspot.com/api/cursos/burcar/${query}`
+          process.env.REACT_APP_BACKEND_URL + `/cursos/buscar/${query}`
         );
         setDatos(res.data.cursos);
       }
@@ -34,7 +34,13 @@ const Buscar = () => {
   }, [query]);
 
   return (
-    <div style={{ justifyContent: "center", paddingLeft: "100px" }}>
+    <div
+      style={{
+        justifyContent: "center",
+        paddingLeft: "100px",
+        backgroundColor: "rgba(75, 75, 239, 0.47);",
+      }}
+    >
       <input
         type="text"
         name="busca"

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/App.css";
 
 const LoginForm = ({ darAcceso }) => {
-  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/docente/login";
+  let URL = process.env.REACT_APP_BACKEND_URL + "/docente/login";
   const navegar = useNavigate();
 
   const [Email, setEmail] = useState("");
@@ -58,7 +58,9 @@ const LoginForm = ({ darAcceso }) => {
   return (
     <div style={{ marginTop: 200 }}>
       <form className="Form">
-        <h1 className="title">Login Now...</h1>
+        <h1 className="title" style={{ marginTop: 40 }}>
+          Login Now...
+        </h1>
         <div>
           <input
             className="input-all"

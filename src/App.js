@@ -42,7 +42,7 @@ function App() {
                 Crear Cuenta
               </NavLink>
               <NavLink className={"navlink"} to="/acceso">
-                log-in
+                login
               </NavLink>
             </div>
           ) : (
@@ -57,7 +57,7 @@ function App() {
                 Docentes
               </NavLink>
               <NavLink className={"navlink"} to="/logout">
-                log -out
+                logout
               </NavLink>
             </div>
           )}

@@ -7,7 +7,7 @@ import axios from "axios";
 
 const RegisterForm = ({ darAcceso }) => {
   let navegar = useNavigate();
-  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/docente";
+  let URL = process.env.REACT_APP_BACKEND_URL + "/docente";
   const {
     register,
     handleSubmit,
@@ -49,7 +49,9 @@ const RegisterForm = ({ darAcceso }) => {
     <div style={{ marginTop: 200 }}>
       <div className="Form">
         <form onSubmit={handleSubmit(gestorFormulario)}>
-          <h1 className="title">Register form</h1>
+          <h1 className="title" style={{ marginTop: 40 }}>
+            Register form
+          </h1>
           <input
             className="input-all"
             type="text"

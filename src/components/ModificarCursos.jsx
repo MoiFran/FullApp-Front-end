@@ -4,7 +4,7 @@ import axios from "axios";
 import Img4 from "../imgs/6-thumb.jpg";
 
 const ModificarCursos = ({ curso }) => {
-  let URL = "https://fast-envoy-361708.wl.r.appspot.com/api/cursos";
+  let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
 
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));
@@ -121,11 +121,14 @@ const ModificarCursos = ({ curso }) => {
         className="btn-delete"
         onClick={async () => {
           await axios
-            .delete(URL + "/" + curso._id, {
-              headers: {
-                Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
-              },
-            })
+            .delete(
+              process.env.REACT_APP_BACKEND_URL + "/cursos/" + curso._id,
+              {
+                headers: {
+                  Authorization: "Bearer " + extraerDatosDeUsuario()[0], // En los headers van 'Bearer ' + token recibido
+                },
+              }
+            )
             .then((response) => {
               window.location.reload(true);
             })

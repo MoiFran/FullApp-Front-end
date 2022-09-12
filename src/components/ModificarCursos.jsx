@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
 import axios from "axios";
 import Img4 from "../imgs/6-thumb.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ModificarCursos = ({ curso }) => {
   //let URL = process.env.REACT_APP_BACKEND_URL + "/cursos";
-
+  const navegar = useNavigate();
   const extraerDatosDeUsuario = () => {
     const datosRecuperar = JSON.parse(localStorage.getItem("DatosUsuario"));
 
@@ -23,7 +24,7 @@ const ModificarCursos = ({ curso }) => {
   const modificar = async () => {
     await axios
       .patch(
-        "https://fast-envoy-361708.wl.r.appspot.com/api/cursos/" + curso._id,
+        `https://fast-envoy-361708.wl.r.appspot.com/api/cursos/${curso._id}`,
         {
           nombre: nombre,
           horas: horas,
@@ -40,6 +41,7 @@ const ModificarCursos = ({ curso }) => {
         //window.location.reload(true);
         console.log("im working");
         console.log("Todo correcto", response.data);
+        navegar("/curso");
       })
       .catch((error) => {
         console.log(error.response.data);

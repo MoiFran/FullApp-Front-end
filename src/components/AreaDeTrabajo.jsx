@@ -24,7 +24,7 @@ const AreaDeTrabajo = () => {
     }
   };
 
-  const [docente, setDocente] = useState([]);
+  const [docente, setDocente] = useState({});
   const getDocente = async () => {
     const data = await axios.get(
       URL + "/docente/" + extraerDatosDeUsuario()[1]
@@ -62,6 +62,7 @@ const AreaDeTrabajo = () => {
       });
   };
   console.log(docente);
+  console.log(docente.nombre);
 
   const [cursos, setCursos] = useState([]);
 
@@ -80,13 +81,13 @@ const AreaDeTrabajo = () => {
   };
 
   useEffect(() => {
-    getAllCursos();
     getDocente();
+    getAllCursos();
   }, []);
   return (
     <div>
       <h2 style={{ textAlign: "center", color: "rgba(0, 0, 0, 0.285)" }}>
-        WeLcome
+        WeLcome {docente.nombre}
       </h2>
       <div className="Form">
         <form onSubmit={handleSubmit(crearCurso)}>

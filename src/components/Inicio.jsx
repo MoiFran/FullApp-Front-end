@@ -15,7 +15,7 @@ const Inicio = () => {
   };
   return (
     <div>
-      <div style={{ paddingLeft: 100, paddingRight: 100 }}>
+      <div style={{ paddingLeft: 100, paddingRight: 100, marginBottom: 20 }}>
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img

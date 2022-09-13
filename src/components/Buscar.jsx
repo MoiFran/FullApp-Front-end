@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Tabla from "./Tabla";
+import Button from "react-bootstrap/Button";
+
+import Form from "react-bootstrap/Form";
 //import './Buscar.css';
 
 const Buscar = () => {
@@ -31,30 +34,19 @@ const Buscar = () => {
   }, [query]);
 
   return (
-    <div
-      style={{
-        justifyContent: "center",
-        paddingLeft: "100px",
-        backgroundColor: "rgba(75, 75, 239, 0.47);",
-      }}
-    >
-      <input
-        type="text"
-        name="busca"
-        placeholder="Buscar Curso"
-        onChange={gestorBusca}
-        onKeyDown={gestorTecla}
-        style={{
-          display: "flex",
-          marginLeft: 700,
-          height: "50px",
-          width: "320px",
-          fontSize: "50px",
-          padding: "15px",
-          borderRadius: "5px",
-          marginTop: "30px",
-        }}
-      />
+    <div>
+      <Form className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex offset-md-4 offset-sm-4">
+        <Form.Control
+          onChange={gestorBusca}
+          onKeyDown={gestorTecla}
+          type="search"
+          placeholder="Buscar Curso"
+          className="me-4"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">Search</Button>
+      </Form>
+
       {/* {datos.map((dato) => {
         return <h1>{dato.nombre}</h1>;
       })} */}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
+import Docente from "./Docente";
 import ModificarCursos from "./ModificarCursos";
 
 const AreaDeTrabajo = () => {
@@ -29,7 +29,7 @@ const AreaDeTrabajo = () => {
     const data = await axios.get(
       URL + "/docente/" + extraerDatosDeUsuario()[1]
     );
-    setDocente(data.data);
+    setDocente(data.data.docente);
   };
 
   const crearCurso = async (data) => {
@@ -86,9 +86,18 @@ const AreaDeTrabajo = () => {
   }, []);
   return (
     <div>
-      <h2 style={{ textAlign: "center", color: "rgba(0, 0, 0, 0.285)" }}>
-        WeLcome {docente.nombre}
-      </h2>
+      <div
+        style={{
+          display: "flex",
+          textAlign: "center",
+          color: "rgba(0, 0, 0, 0.285)",
+          flexDirection: "column",
+        }}
+      >
+        <h2 style={{}}>Welcome Docente </h2>
+        <h2> {docente.nombre}</h2>
+        <Docente />
+      </div>
       <div className="Form">
         <form onSubmit={handleSubmit(crearCurso)}>
           <h1 className="title">Nuevo Curso</h1>

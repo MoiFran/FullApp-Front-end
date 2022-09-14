@@ -35,7 +35,7 @@ const Buscar = () => {
 
   return (
     <div>
-      <Form className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex offset-md-4 offset-sm-4">
+      <Form className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex offset-md-4 offset-sm-4 offset-xs-4">
         <Form.Control
           onChange={gestorBusca}
           onKeyDown={gestorTecla}

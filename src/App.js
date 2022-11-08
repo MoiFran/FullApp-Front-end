@@ -39,7 +39,7 @@ function App() {
             <Container fluid>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
-                <Nav className="me-auto my-2 my-lg-0 offset-md-3" navbarScroll>
+                <Nav className="me-auto">
                   {!tieneAcceso ? (
                     <div>
                       <NavLink className={"navlink"} to="/">
